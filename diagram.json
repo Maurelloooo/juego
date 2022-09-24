@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": -28.79,
+      "left": -51.84,
+      "attrs": { "env": "micropython-20220618-v1.19.1" }
+    },
+    { "type": "board-ssd1306", "id": "oled1", "top": 166.13, "left": 111.21, "attrs": {} },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "joystick1",
+      "top": -11.54,
+      "left": 192.64,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 31.76,
+      "left": 338.79,
+      "attrs": { "color": "green" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "oled1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "oled1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "oled1:SCL", "esp:D22", "green", [ "v0" ] ],
+    [ "oled1:SDA", "esp:D23", "green", [ "v0" ] ],
+    [
+      "esp:D32",
+      "joystick1:HORZ",
+      "green",
+      [ "h-50.29", "v-78.1", "h425.98", "v159.55", "h-89.6" ]
+    ],
+    [ "esp:D21", "btn1:2.l", "green", [ "h33.31", "v121.64", "h256.02" ] ],
+    [ "esp:GND.2", "btn1:1.r", "black", [ "h-19.28", "v147.88", "h486.53", "v-222.5" ] ],
+    [
+      "esp:D33",
+      "joystick1:VERT",
+      "green",
+      [ "h-17.42", "v-98.19", "h253.66", "v165.02", "h46.12" ]
+    ]
+  ]
+}
